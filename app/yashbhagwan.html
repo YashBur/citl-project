@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website</title>
+</head>
+<body>
+    <div id="response-container"></div>
+    <script>
+        const url = 'https://jsearch.p.rapidapi.com/search?query=Python%20developer%20in%20Texas%2C%20USA&page=1&num_pages=1';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'cd8ab388b9mshae264f8b24d4c13p1d991ejsn9d8db93fec8b',
+                'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+            }
+        };
+
+        async function fetchData() {
+            try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                // Update the content of the response-container div with the response text
+                document.getElementById('response-container').innerHTML = result;
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        fetchData(); // Call the function to initiate the request
+    </script>
+</body>
+</html>
